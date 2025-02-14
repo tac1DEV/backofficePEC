@@ -37,7 +37,7 @@ if($page != 'login' && !isset($_SESSION['admin'])){
 }
 
 include 'body/topbar.php'; ?>
-<div class="container">
+<div class="container flex-col flex flex-center">
 <?php include 'pages/'.$page.'.php'; ?>
 </div>
 </body>

@@ -25,7 +25,7 @@ foreach($tables as $table_name => $table){
 <?php 
     $comments = get_comments();
 ?>
-<table style="border: 1px solid black;">
+<table style="border: 1px solid black; text-align: initial;">
     <thead>
         <tr>
             <td style="border: 1px solid black;">Article</td>
@@ -35,36 +35,44 @@ foreach($tables as $table_name => $table){
     </thead>
     <tbody>
         <?php 
-        foreach($comments as $comment){
+        if(empty($comments)){
+            foreach($comments as $comment){
+                ?>
+                <tr id="commentaire_<?= $comment->id?>">
+                <td style="border: 1px solid black;"><?= $comment->title?></td>
+                <td style="border: 1px solid black;"><?= substr($comment->comment,0,100);?></td>
+                <td style="border: 1px solid black;">
+                    <form action="commentaires/see_comment.php" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<?= $comment->id ?>">
+                        <button type="submit">accepter</button>
+                    </form>
+                    <form action="commentaires/delete_comment.php" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<?= $comment->id ?>">
+                        <button type="submit">supprimer</button>
+                    </form>
+                <a href="#comment_<?= $comment->id?>" id="<?= $comment->id?>">détails</a>
+                <div id="comment_<?= $comment->id?>">
+                    <div>
+                    <h4><?=$comment->title ?></h4>
+                    <p>Commentaire posté par <strong><?= $comment->name." (".$comment->email.")</strong><br />Le ".date("d/m/Y à H:i",strtotime($comment->date)) ?></p>
+                    <hr />
+                    <p><?= nl2br($comment->comment) ?></p>
+                    </div>
+                    <div>
+                        <a href="#" id="<?= $comment->id?>">accepter</a>
+                        <a href="#" id="<?= $comment->id?>">supprimer</a>
+                    </div>
+                </div>
+                </td>
+                </tr>
+                <?php
+            }
             ?>
-            <tr id="commentaire_<?= $comment->id?>">
-            <td style="border: 1px solid black;"><?= $comment->title?></td>
-            <td style="border: 1px solid black;"><?= substr($comment->comment,0,100);?></td>
-            <td style="border: 1px solid black;">
-                <form action="commentaires/see_comment.php" method="post" style="display:inline;">
-                    <input type="hidden" name="id" value="<?= $comment->id ?>">
-                    <button type="submit">accepter</button>
-                </form>
-                <form action="commentaires/delete_comment.php" method="post" style="display:inline;">
-                    <input type="hidden" name="id" value="<?= $comment->id ?>">
-                    <button type="submit">supprimer</button>
-                </form>
-            <a href="#comment_<?= $comment->id?>" id="<?= $comment->id?>">détails</a>
-            <div id="comment_<?= $comment->id?>">
-                <div>
-                <h4><?=$comment->title ?></h4>
-                <p>Commentaire posté par <strong><?= $comment->name." (".$comment->email.")</strong><br />Le ".date("d/m/Y à H:i",strtotime($comment->date)) ?></p>
-                <hr />
-                <p><?= nl2br($comment->comment) ?></p>
-                </div>
-                <div>
-                    <a href="#" id="<?= $comment->id?>">accepter</a>
-                    <a href="#" id="<?= $comment->id?>">supprimer</a>
-                </div>
-            </div>
-            </td>
+            <tr>
+                <td></td>
+                <td>Aucun commentaire à valider</td>
             </tr>
-            <?php
+        <?php
         }
         ?>
     </tbody>
