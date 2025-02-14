@@ -5,7 +5,7 @@
     if(isset($_POST['post'])){
         $title = htmlspecialchars(trim($_POST['title']));
         $content = htmlspecialchars(trim($_POST['content']));
-        $posted = isset($_POST['submit']) ? "1" : "0";
+        $posted = isset($_POST['public']) ? "1" : "0";
         
         $errors = [];
 
@@ -35,6 +35,12 @@
             <?php
         }else{
             post($title, $content, $posted);
+            if(!empty($_FILES['image']['name'])){
+                post_img($_FILES['image']['tmp_name'], $extension);
+            }else{
+                $id = $db->lastInsertId();
+                header("Location: index.php?page=post&id=".$id);
+            }
         }
     }
 
