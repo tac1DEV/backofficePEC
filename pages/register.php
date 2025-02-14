@@ -8,10 +8,9 @@
 
     $errors = [];
 
-    if(empty($lastname) || empty($firstname) || empty($password) || empty($email)){
-        $errors['empty'] = "Veuillez remplir tous les champs";
+    if(create_user($lastname, $firstname, $email, $password)==false){
+        $errors['exist'] = "Ce mail est déjà utilisé.";
     }
-
     if(!empty($errors)){
         ?>
         <p>
@@ -20,10 +19,11 @@
                 echo $error . "<br />";
             }
             ?>
-        </p>
         <?php
     }else{
-        create_user($lastname ,$firstname, $email, $password);
+        ?>
+        <p>Utilisateur créé avec succès.</p>
+        <?php
     }
 }
 ?>
