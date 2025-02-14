@@ -46,6 +46,7 @@ function get_comments(){
         SELECT *
         FROM comments
         WHERE post_id = '{$_GET['id']}'
+        AND seen = '1'
         ORDER BY date DESC
     ");
 

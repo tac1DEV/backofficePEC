@@ -35,7 +35,7 @@ foreach($tables as $table_name => $table){
     </thead>
     <tbody>
         <?php 
-        if(empty($comments)){
+        if(!empty($comments)){
             foreach($comments as $comment){
                 ?>
                 <tr id="commentaire_<?= $comment->id?>">
@@ -67,6 +67,7 @@ foreach($tables as $table_name => $table){
                 </tr>
                 <?php
             }
+        }else{
             ?>
             <tr>
                 <td></td>
