@@ -12,3 +12,7 @@
             <button type="submit" name="post">Se connecter</button>
         </div>
     </form>
+    <div class="flex flex-center redirectCo">
+        <p>Pas de compte ? Inscrivez vous </p>
+		<a href="index.php?page=register">ici</a>
+	</div>

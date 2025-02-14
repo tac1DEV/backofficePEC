@@ -12,7 +12,6 @@ if(isset($_POST['post'])){
     if ($user && sha1($password) === $user['password']) {
         session_start();
         $_SESSION['user_prenom'] = $user['prenom'];
-        $_SESSION['user_email'] = $user['email'];
         header('Location: index.php?page=home'); 
         exit();
     } else {

@@ -49,3 +49,7 @@
             <button type="submit" name="post">Créer l'utilisateur</button>
         </div>
     </form>
+    <div class="flex flex-center redirectCo">
+        <p>Déjà inscrit ? Connectez vous</p>
+		<a href="index.php?page=login">ici</a>
+	</div>
