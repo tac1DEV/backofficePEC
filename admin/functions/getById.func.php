@@ -21,3 +21,32 @@ function get_post(){
     
     return $results;
 }
+
+function edit($title, $content, $posted, $id){
+    global $db;
+
+    $e = [
+        'title' => $title,
+        'content' => $content,
+        'posted' => $posted,
+        'id' => $id
+    ];
+
+    $sql = "UPDATE posts SET title = :title, content = :content, date = NOW(), posted = :posted WHERE id = :id";
+    $req = $db->prepare($sql);
+    $req->execute($e);
+    
+}
+
+function delete($id){
+    global $db;
+
+    $d = [
+        'id' => $id
+    ];
+
+    $sql = "DELETE FROM posts WHERE id = :id";
+    $req = $db->prepare($sql);
+    $req->execute($d);
+    
+}
