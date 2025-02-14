@@ -1,5 +1,5 @@
 <h2>Poster un article</h2>
-
+<hr />
 <?php
 
     if(isset($_POST['post'])){
