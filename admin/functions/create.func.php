@@ -26,7 +26,7 @@ function post_img($tmp_name, $extension){
     $req = $db->prepare($sql);
     $req->execute($i);
     move_uploaded_file($tmp_name, "../img/posts/".$id.$extension);
-    header("Location: index.php?page=post&id=".$id);
+    header("Location: index.php?page=getById&id=".$id);
 }
 
 ?>

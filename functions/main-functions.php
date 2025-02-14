@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $dbhost = 'localhost';
 $dbname = 'blog';
 $dbuser = 'root';
@@ -11,4 +13,21 @@ try{
     die('Une erreur est survenue lors de la connexion à la base de données');
 }
 
+function admin(){
+    if(isset($_SESSION['admin'])){
+        global $db;
+        $a = [
+            'email' => $_SESSION['admin'],
+            'role' => 'admin'
+        ];
+        
+        $sql = "SELECT * FROM admins WHERE email = :email AND role = :role";
+        $req = $db->prepare($sql);
+        $req->execute($a);
+        $exist = $req->rowCount($sql);
+        return $exist;
+    }else{
+        return false;
+    }
+}
 ?>

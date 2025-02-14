@@ -1,7 +1,5 @@
 <?php 
 
-session_start();
-
 include '../functions/main-functions.php';
 
     $pages = scandir('pages');
