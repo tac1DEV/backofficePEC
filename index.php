@@ -42,8 +42,12 @@ include 'functions/main-functions.php';
 <nav>
     <a href="index.php?page=home">Blog 2.0</a>
     <ul>
-    <li><a href="index.php?page=blog">Liste des articles</a></li>
-    <li><a href="index.php?page=dashboard">Admin</a></li>
+        <li><a href="index.php?page=blog">Liste des articles</a></li>
+        <?php if (!isset($_SESSION['user'])): ?>
+            <li><a href="index.php?page=login">Se connecter</a></li>
+        <?php else: ?>
+            <li><a href="index.php?page=logout">Se déconnecter</a></li>
+        <?php endif; ?>
     </ul>
 </nav>
 <?php endif; ?>

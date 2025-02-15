@@ -17,10 +17,14 @@ if(isset($_SESSION['admin'])){
 
         $errors = [];
         
-        if(empty($email) || empty($password)){
+        if(empty($email) || empty($password)){//verifie si les champs sont vides
             $errors['empty'] = "Tous les champs n'ont pas été remplis";
-        }else if(is_admin($email, $password)==0){
-            $errors['exist'] = "Mail ou mot de passe incorrect";
+        }else if(is_admin($email, $password)){//verifie si l'utilisateur est un admin
+            $_SESSION['admin'] = $email;
+            header("Location: index.php?page=dashboard");
+        }else if(is_user($email, $password)){//verifie si l'utilisateur est un user{
+            $_SESSION['user'] = $email;
+            header("Location: index.php?page=blog");
         }
         if(!empty($errors)){
             ?>
@@ -32,8 +36,9 @@ if(isset($_SESSION['admin'])){
                 ?>
             <?php
         }else{
-            $_SESSION['admin'] = $email;
-            header("Location: index.php?page=dashboard");
+            ?>
+            <p>Identifiants incorrects</p>
+            <?php
         }
     }
 ?>
