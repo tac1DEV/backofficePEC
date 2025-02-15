@@ -18,23 +18,18 @@ if(isset($_SESSION['admin'])){
         $errors = [];
         
         if(empty($email) || empty($password)){//verifie si les champs sont vides
-            $errors['empty'] = "Tous les champs n'ont pas été remplis";
-        }else if(is_admin($email, $password)){//verifie si l'utilisateur est un admin
-            $_SESSION['admin'] = $email;
-            header("Location: index.php?page=dashboard");
-        }else if(is_user($email, $password)){//verifie si l'utilisateur est un user{
-            $_SESSION['user'] = $email;
-            header("Location: index.php?page=blog");
-        }
-        if(!empty($errors)){
             ?>
             <p>
                 <?php
-                foreach($errors as $error){
-                    echo $error . "<br />";
-                }
+                    echo "Tous les champs n'ont pas été remplis <br />";
                 ?>
             <?php
+        }else if(is_registered($email, $password, 'admin')){//verifie si l'utilisateur est un admin
+            $_SESSION['admin'] = $email;
+            header("Location: index.php?page=dashboard");
+        }else if(is_registered($email, $password, 'user')){//verifie si l'utilisateur est un user{
+            $_SESSION['user'] = $email;
+            header("Location: index.php?page=blog");
         }else{
             ?>
             <p>Identifiants incorrects</p>
