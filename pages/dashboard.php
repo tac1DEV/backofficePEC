@@ -6,6 +6,9 @@ $tables = [
     "Commentaires" => "comments",
     "Administrateurs" => "admins"
 ];
+if($_SESSION['admin'] == false){
+    header('Location: index.php?page=login');
+}
 ?>
 <div class="flex flex-gap-4">
 <?php   

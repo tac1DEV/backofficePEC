@@ -9,7 +9,7 @@ include 'functions/main-functions.php';
         $page = 'error';
         }
     }else{
-        $page = 'home';
+        $page = 'blog';
     }
 
     $pages_functions = scandir('functions/');
@@ -27,7 +27,26 @@ include 'functions/main-functions.php';
     <title>Document</title>
 </head>
 <body>
-<?php include 'body/topbar.php'; ?>
+<?php if (isset($_SESSION['admin'])): ?>
+<nav>
+    <a href="index.php?page=dashboard">Blog 2.0 admin</a>
+    <ul>
+    <li><a href="index.php?page=dashboard">Accueil</a></li>
+    <li><a href="index.php?page=create">Create</a></li>
+    <li><a href="index.php?page=getAll">GetAll</a></li>
+    <li><a href="../index.php?page=home">Blog</a></li>
+    <li><a href="index.php?page=logout">Déconnexion</a></li>
+    </ul>
+</nav>
+<?php else: ?>
+<nav>
+    <a href="index.php?page=home">Blog 2.0</a>
+    <ul>
+    <li><a href="index.php?page=blog">Liste des articles</a></li>
+    <li><a href="index.php?page=dashboard">Admin</a></li>
+    </ul>
+</nav>
+<?php endif; ?>
 <div class="container">
 <?php include 'pages/'.$page.'.php'; ?>
 </div>

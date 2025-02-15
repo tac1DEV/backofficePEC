@@ -1,2 +1,1 @@
-<h2>Aie aie aie</h2>
-<p>Cette page n'existe pas ou plus !</p>
+<h1>Erreur 404</h1>
