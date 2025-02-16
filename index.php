@@ -27,9 +27,10 @@ include 'functions/main-functions.php';
     <title>Document</title>
 </head>
 <body>
-<nav>
-    <a href="index.php?page=<?php echo isset($_SESSION['admin']) ? 'dashboard' : 'home'; ?>">Blog 2.0 <?php echo isset($_SESSION['admin']) ? 'admin' : ''; ?></a>
-    <ul>
+<nav class="navbar">
+    <div class="flex-space-between">
+    <a href="index.php?page=<?php echo isset($_SESSION['admin']) ? 'dashboard' : 'blog'; ?>" class="navbar-brand">Blog 2.0 <?php echo isset($_SESSION['admin']) ? 'admin' : ''; ?></a>
+    <ul class="navbar-menu">
         <?php if (isset($_SESSION['admin'])): ?>
             <li><a href="index.php?page=dashboard">Accueil</a></li>
             <li><a href="index.php?page=create">Create</a></li>
@@ -45,6 +46,7 @@ include 'functions/main-functions.php';
             <?php endif; ?>
         <?php endif; ?>
     </ul>
+    </div>
 </nav>
 <div class="container">
 <?php include 'pages/'.$page.'.php'; ?>

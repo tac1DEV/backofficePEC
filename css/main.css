@@ -737,6 +737,35 @@
 }
 
 @layer components {
+  .navbar {
+    background-color: var(--l-black);
+    color: var(--white);
+    padding: 1rem 0;
+  }
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar-menu li {
+    margin: 0;
+  }
+  .navbar-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+@layer components {
   .services {
     display: grid;
     gap: 1rem;
@@ -824,6 +853,13 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+.flex-space-between {
+  display: flex;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .star::before {
