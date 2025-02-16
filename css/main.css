@@ -758,11 +758,21 @@
   .navbar-menu li {
     margin: 0;
   }
+  @media screen and (max-width: 576px) {
+    .navbar-menu li {
+      margin: 0.3125rem 0;
+    }
+  }
   .navbar-menu a {
     color: var(--white);
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
+  }
+  @media screen and (max-width: 576px) {
+    .navbar-menu {
+      display: block;
+    }
   }
 }
 @layer components {
@@ -801,7 +811,14 @@
     max-height: 15.625rem;
     overflow-y: auto;
   }
+  @media screen and (max-width: 1200px) {
+    .commandes-box ul {
+      list-style: none;
+      padding: 1rem;
+    }
+  }
   .commandes-box li {
+    font-size: 1rem;
     padding-left: 0.625rem;
     margin: 0.625rem 0;
   }
