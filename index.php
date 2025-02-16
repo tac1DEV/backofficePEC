@@ -29,7 +29,7 @@ include 'functions/main-functions.php';
 <body>
 <nav class="navbar">
     <div class="flex-space-between">
-    <a href="index.php?page=<?php echo isset($_SESSION['admin']) ? 'dashboard' : 'blog'; ?>" class="navbar-brand">Blog 2.0 <?php echo isset($_SESSION['admin']) ? 'admin' : ''; ?></a>
+    <a href="index.php?page=<?php echo isset($_SESSION['admin']) ? 'dashboard' : 'blog'; ?>" class="navbar-brand">Doc2Wheels <?php echo isset($_SESSION['admin']) ? 'admin' : ''; ?></a>
     <ul class="navbar-menu">
         <?php if (isset($_SESSION['admin'])): ?>
             <li><a href="index.php?page=dashboard">Accueil</a></li>
@@ -38,7 +38,7 @@ include 'functions/main-functions.php';
             <li><a href="index.php?page=blog">Blog</a></li>
             <li><a href="index.php?page=logout">Déconnexion</a></li>
         <?php else: ?>
-            <li><a href="index.php?page=blog">Liste des articles</a></li>
+            <li><a href="index.php?page=register">S'inscrire</a></li>
             <?php if (!isset($_SESSION['user'])): ?>
                 <li><a href="index.php?page=login">Se connecter</a></li>
             <?php else: ?>

@@ -1,6 +1,6 @@
 <?php 
 
-function is_registered($email, $password, $role){//verifie si l'utilisateur est un admin
+function is_registered($email, $password, $role){//verifie si l'utilisateur est enrégistré
             
     global $db;
     
