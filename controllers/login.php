@@ -1,12 +1,12 @@
 <?php
 
-require '../config/config.php'; 
+require '../autoload.php';
 require '../models/loginModel.php';
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = htmlspecialchars(trim($_POST['email']));
     $password = htmlspecialchars(trim($_POST['password']));
-$login = new Login($db);
+$login = new Login();
 $login->setEmail($_POST['email']);
 $login->setPassword($_POST['password']);
 
@@ -17,7 +17,7 @@ if ($login->isRegistered()) {
         header('Location: dashboard.php');
     } else {
         $_SESSION['user'] = $email;
-        header('Location: index.php?page=blog');
+        header('Location: service.php');
     }    
 } else {
     echo "Identifiants incorrects.";

@@ -1,6 +1,6 @@
 <?php
 
-require_once '../config/config.php';
+require '../autoload.php';
 
 class Login {
     private PDO $db;
@@ -8,8 +8,8 @@ class Login {
     public string|null $password = null;
     public string|null $role = null;
 
-    public function __construct(PDO $db) {
-        $this->db = $db;
+    public function __construct() {
+        $this->db = Database::getInstance();
     }
 
     public function setEmail(string $email) {
