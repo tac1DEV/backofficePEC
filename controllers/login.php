@@ -1,38 +1,37 @@
 <?php
 
+require '../config/config.php'; 
+require '../models/loginModel.php';
 
-// require_once './calculator.php';
-require_once './login.php';
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $email = htmlspecialchars(trim($_POST['email']));
+    $password = htmlspecialchars(trim($_POST['password']));
+$login = new Login($db);
+$login->setEmail($_POST['email']);
+$login->setPassword($_POST['password']);
 
-// $calculator = new Calculator();
-$login = new Login();
-// $calculator->setOperation($_GET['operation']);
-// $calculator->setNumberLeft($_GET['numberLeft']);
-// $calculator->setNumberRight($_GET['numberRight']);
-
-
-// if($calculator->operation === null) {
-//     echo 'Operation invalide';
-//     return;
-// }
-
-
-// $calculator->{$calculator->operation}();
-
-
-// if($calculator->result === null) {
-//     echo 'something went wrong';
-//     return;
-// }
-
-// echo $calculator->result;
+if ($login->isRegistered()) {
+        $role = $login->getRole();
+    if ($role === 'admin') {
+        $_SESSION['admin'] = $email;
+        header('Location: dashboard.php');
+    } else {
+        $_SESSION['user'] = $email;
+        header('Location: index.php?page=blog');
+    }    
+} else {
+    echo "Identifiants incorrects.";
+}
+} else {
+echo "Veuillez remplir tous les champs.";
+}
 
 ?>
 <h4>Se connecter</h4>
-<form method="post" class="flex flex-col">
+<form method="POST" class="flex flex-col">
 <label for="email">Adresse email</label>
     <input type="email" id="email" name="email" placeholder="Email" />
-    <label for="email">Mot de passe</label>
+    <label for="password">Mot de passe</label>
     <input type="password" id="password" name="password" placeholder="Mot de passe" />
     <input type="submit" name="submit" value="Se connecter" />
 </form>

@@ -49,7 +49,7 @@ include 'functions/main-functions.php';
     </div>
 </nav>
 <div class="container">
-<?php include 'pages/'.$page.'.php'; ?>
+<?php include 'controllers/'.$page.'.php'; ?>
 </div>
 </body>
 </html>
