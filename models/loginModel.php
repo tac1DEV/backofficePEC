@@ -1,6 +1,5 @@
 <?php
 
-require '../autoload.php';
 
 class Login {
     private PDO $db;

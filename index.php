@@ -1,21 +1,14 @@
-<?php 
-include 'functions/main-functions.php';
+<?php
+require 'autoload.php'; // Connexion a la db
+session_start();
 
-    $pages = scandir('pages');
-    if(isset($_GET['page']) && !empty($_GET['page'])){
-        if(in_array($_GET['page'].'.php', $pages)){
-            $page = $_GET['page'];
-        }else{
-        $page = 'error';
-        }
-    }else{
-        $page = 'blog';
-    }
+$page = isset($_GET['page']) ? $_GET['page'] : 'service'; //Service par defaut (comme sur figma) 
 
-    $pages_functions = scandir('functions/');
-    if(in_array($page.'.func.php', $pages_functions)){
-        include 'functions/'.$page.'.func.php';
-    }
+$pageFile = 'controllers/' . $page . '.php'; //Tous les controleurs
+
+if (!file_exists($pageFile)) {
+    $pageFile = 'controllers/error.php';
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,29 +20,11 @@ include 'functions/main-functions.php';
     <title>Document</title>
 </head>
 <body>
-<nav class="navbar">
-    <div class="flex-space-between">
-    <a href="index.php?page=<?php echo isset($_SESSION['admin']) ? 'dashboard' : 'blog'; ?>" class="navbar-brand">Doc2Wheels <?php echo isset($_SESSION['admin']) ? 'admin' : ''; ?></a>
-    <ul class="navbar-menu">
-        <?php if (isset($_SESSION['admin'])): ?>
-            <li><a href="index.php?page=dashboard">Accueil</a></li>
-            <li><a href="index.php?page=create">Create</a></li>
-            <li><a href="index.php?page=getAll">GetAll</a></li>
-            <li><a href="index.php?page=blog">Blog</a></li>
-            <li><a href="index.php?page=logout">Déconnexion</a></li>
-        <?php else: ?>
-            <li><a href="index.php?page=register">S'inscrire</a></li>
-            <?php if (!isset($_SESSION['user'])): ?>
-                <li><a href="index.php?page=login">Se connecter</a></li>
-            <?php else: ?>
-                <li><a href="index.php?page=logout">Se déconnecter</a></li>
-            <?php endif; ?>
-        <?php endif; ?>
-    </ul>
-    </div>
-</nav>
+<?php 
+include './navbar/navbar.php'; 
+?>
 <div class="container">
-<?php include 'controllers/'.$page.'.php'; ?>
+    <?php include $pageFile; ?>
 </div>
 </body>
 </html>

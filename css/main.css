@@ -180,6 +180,8 @@
     --l-gold-hover: rgb(231.6, 179.4, 109.2);
     --l-black: #211f20;
     --l-black-hover: rgb(55.996875, 52.603125, 54.3);
+    --red: #910000;
+    --red-hover: rgb(181.5, 0, 0);
   }
   :root .text-black {
     color: var(--black);
@@ -205,13 +207,43 @@
   :root .text-l-black {
     color: var(--l-black);
   }
+  :root .text-red {
+    color: var(--red);
+  }
   body {
     font-family: "Libre Baskerville", serif;
   }
 }
 @layer utilities {
   .h-1 {
-    height: 0.25rem;
+    height: 10vh;
+  }
+  .h-2 {
+    height: 20vh;
+  }
+  .h-3 {
+    height: 30vh;
+  }
+  .h-4 {
+    height: 40vh;
+  }
+  .h-5 {
+    height: 50vh;
+  }
+  .h-6 {
+    height: 60vh;
+  }
+  .h-7 {
+    height: 70vh;
+  }
+  .h-8 {
+    height: 80vh;
+  }
+  .h-9 {
+    height: 90vh;
+  }
+  .h-10 {
+    height: 100vh;
   }
   .w-1 {
     width: 0.25rem;
@@ -260,9 +292,6 @@
   .pr-1 {
     padding-right: 0.25rem;
   }
-  .h-2 {
-    height: 0.5rem;
-  }
   .w-2 {
     width: 0.5rem;
   }
@@ -309,9 +338,6 @@
   }
   .pr-2 {
     padding-right: 0.5rem;
-  }
-  .h-3 {
-    height: 0.75rem;
   }
   .w-3 {
     width: 0.75rem;
@@ -360,9 +386,6 @@
   .pr-3 {
     padding-right: 0.75rem;
   }
-  .h-4 {
-    height: 1rem;
-  }
   .w-4 {
     width: 1rem;
   }
@@ -409,9 +432,6 @@
   }
   .pr-4 {
     padding-right: 1rem;
-  }
-  .h-5 {
-    height: 1.25rem;
   }
   .w-5 {
     width: 1.25rem;
@@ -460,9 +480,6 @@
   .pr-5 {
     padding-right: 1.25rem;
   }
-  .h-6 {
-    height: 1.5rem;
-  }
   .w-6 {
     width: 1.5rem;
   }
@@ -510,9 +527,6 @@
   .pr-6 {
     padding-right: 1.5rem;
   }
-  .h-7 {
-    height: 1.75rem;
-  }
   .w-7 {
     width: 1.75rem;
   }
@@ -559,9 +573,6 @@
   }
   .pr-7 {
     padding-right: 1.75rem;
-  }
-  .h-8 {
-    height: 2rem;
   }
   .w-8 {
     width: 2rem;
@@ -657,6 +668,12 @@
   }
   .border-l-black {
     border-color: var(--l-black);
+  }
+  .bg-red {
+    background-color: var(--red);
+  }
+  .border-red {
+    border-color: var(--red);
   }
 }
 .grid {
