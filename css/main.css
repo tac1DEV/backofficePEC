@@ -258,7 +258,15 @@
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
+  .mx-1 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
   .py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .my-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
   }
@@ -305,7 +313,15 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  .mx-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
   .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .my-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
@@ -352,7 +368,15 @@
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+  .mx-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
   .py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .my-3 {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
@@ -399,7 +423,15 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .mx-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
   .py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .my-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
@@ -446,7 +478,15 @@
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
+  .mx-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
   .py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .my-5 {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
   }
@@ -493,7 +533,15 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+  .mx-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
   .py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .my-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
@@ -540,7 +588,15 @@
     padding-left: 1.75rem;
     padding-right: 1.75rem;
   }
+  .mx-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
   .py-7 {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+  .my-7 {
     padding-top: 1.75rem;
     padding-bottom: 1.75rem;
   }
@@ -587,7 +643,15 @@
     padding-left: 2rem;
     padding-right: 2rem;
   }
+  .mx-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
   .py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .my-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
